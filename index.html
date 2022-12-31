@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +11,56 @@
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
-<body>
 
-    <canvas id="canvas"></canvas>
+<body class="bg-dark">
+
+    <section id="jogo">
+
+        <canvas id="canvas"></canvas>
+
+    </section>
+    <section id="info">
+
+        <div class="px-3 d-flex">
+
+            <p class="text-success fs-1">$</p>
+            <p id="dinheiro" class="fs-1 ms-1"> 0</p>
+
+        </div>
+
+    </section>
+    <section id="loja">
+
+        <img src="./img/carrinho.png" type="button" id="open-loja">
+
+        <div data-bs-spy="scroll" id="menu" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+            <h4 id="list-item-1">Item 1</h4>
+            <p>...</p>
+            <h4 id="list-item-2">Item 2</h4>
+            <p>...</p>
+            <h4 id="list-item-3">Item 3</h4>
+            <p>...</p>
+            <h4 id="list-item-4">Item 4</h4>
+            <p>...</p>
+        </div>
+
+    </section>
+    <section id="contador">
+
+        <div class="px-3 d-flex">
+
+            <p class="text-success fs-1">$</p>
+            <p id="dinheiro" class="fs-1 ms-1"> 0</p>
+
+        </div>
+
+    </section>
+
 
     <script src="./jquery/jquery-3.6.3.min.js"></script>
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./js/game.bundle.js"></script>
-    
+
 </body>
+
 </html>

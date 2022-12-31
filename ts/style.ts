@@ -1,2 +1,2 @@
-$(".w-win").css("width",`${window.innerWidth}px`)
-$(".h-win").css("height",`${window.innerHeight}px`)
+$(".w-win").css("width",`${WIDTH}px`)
+$(".h-win").css("height",`${HEIGHT}px`)
