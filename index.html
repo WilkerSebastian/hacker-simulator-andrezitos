@@ -14,48 +14,135 @@
 
 <body class="bg-dark">
 
+    <section id="laod" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+        <button id="run-game" class="btn btn-warning">Run Game</button>
+
+        <div id="load-screen"
+            class="d-flex align-items-center invisible justify-content-center position-fixed top-0 end-0 start-0 bottom-0">
+            <div class="text-center">
+                <h1 class="text-light text-hacker" style="font-size: 4rem;">Hacker Simulator</h1>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100" id="carregando"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
     <section id="jogo">
 
         <canvas id="canvas"></canvas>
 
+        <section id="info">
+
+
+        </section>
+        <section id="loja">
+
+            <img src="./img/carrinho.png" type="button" id="open-loja">
+
+            <div data-bs-spy="scroll" id="menu" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example bg-secondary-menu" tabindex="0">
+
+                <div id="computador" class="mt-2">
+
+                    <h4 class="text-light text-center">COMPUTADORES</h4>
+                    <div class="fs-5">
+
+                        <p class="bg-secondary m-0">Calculadora</p>
+                        <div class="bg-light d-flex align-items-center click">
+                            <p class="m-auto">Laptop da Xuxa</p>
+                            <p class="text-hacker text-danger m-auto fs-4">$30</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="computador" class="mt-2">
+
+                    <h4 class="text-light text-center mb-2">MONITORES</h4>
+                    <div class="fs-5">
+
+                        <p class="bg-secondary m-0">Calculadora</p>
+                        <div class="bg-light d-flex align-items-center click">
+                            <p class="m-auto">Laptop da Xuxa</p>
+                            <p class="text-hacker text-danger m-auto fs-4">$30</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="computador" class="mt-2">
+
+                    <h4 class="text-light text-center mb-2">TECLADOS</h4>
+                    <div class="fs-5">
+
+                        <p class="bg-secondary m-0">Calculadora</p>
+                        <div class="bg-light d-flex align-items-center click">
+                            <p class="m-auto">Laptop da Xuxa</p>
+                            <p class="text-hacker text-danger m-auto fs-4">$30</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="computador" class="mt-2">
+
+                    <h4 class="text-light text-center mb-2">MESAS</h4>
+                    <div class="fs-5">
+
+                        <p class="bg-secondary m-0">Calculadora</p>
+                        <div class="bg-light d-flex align-items-center click">
+                            <p class="m-auto">Laptop da Xuxa</p>
+                            <p class="text-hacker text-danger m-auto fs-4">$30</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="computador" class="mt-2 mb-5">
+
+                    <h4 class="text-light text-center mb-2">PINTURA</h4>
+                    <div class="fs-5">
+
+                        <div class="bg-light d-flex align-items-center click">
+                            <p class="m-0 ms-2">Piso</p>
+                        </div>
+                        <div class="bg-light d-flex align-items-center click">
+                            <p class="m-0 ms-2">Paredes</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="sub-menu" class="w-100 h-25 bg-dark position-relative bottom-0">
+
+                    <h4 class="text-center text-light">LAPTOP DA XUXA</h4>
+                    <div>
+
+                        <img src="" alt="">
+                        <p></p>
+
+                    </div>
+                    <button></button>
+
+                </div>
+            </div>
+
+        </section>
+        <section id="contador">
+
+            <div class="px-3 d-flex">
+
+                <p class="text-success fs-1">$</p>
+                <p id="dinheiro" class="fs-1 ms-1">0</p>
+
+            </div>
+
+        </section>
+
     </section>
-    <section id="info">
-
-        <div class="px-3 d-flex">
-
-            <p class="text-success fs-1">$</p>
-            <p id="dinheiro" class="fs-1 ms-1"> 0</p>
-
-        </div>
-
-    </section>
-    <section id="loja">
-
-        <img src="./img/carrinho.png" type="button" id="open-loja">
-
-        <div data-bs-spy="scroll" id="menu" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-            <h4 id="list-item-1">Item 1</h4>
-            <p>...</p>
-            <h4 id="list-item-2">Item 2</h4>
-            <p>...</p>
-            <h4 id="list-item-3">Item 3</h4>
-            <p>...</p>
-            <h4 id="list-item-4">Item 4</h4>
-            <p>...</p>
-        </div>
-
-    </section>
-    <section id="contador">
-
-        <div class="px-3 d-flex">
-
-            <p class="text-success fs-1">$</p>
-            <p id="dinheiro" class="fs-1 ms-1"> 0</p>
-
-        </div>
-
-    </section>
-
 
     <script src="./jquery/jquery-3.6.3.min.js"></script>
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
