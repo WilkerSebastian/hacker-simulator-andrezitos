@@ -15,6 +15,16 @@ class Monitor extends GameObject{
 
     }
 
+    setShop() {
+
+        switch (this.index) {
+            case 0:
+                
+                break;
+        }
+
+    }
+
     upgrade() {
 
         this.index++

@@ -1,6 +1,6 @@
 function start() {
 
-    player = new Player(0, 0, WIDTH * 0.01, HEIGHT * 0.025, true)
+    player = new Player(0, 0, WIDTH * 0.01, HEIGHT * 0.025)
 
     nuvens = new Layer(imagens.get("nuvens") as HTMLImageElement, WIDTH / 4, HEIGHT / 30, WIDTH * 0.75, HEIGHT / 2.8, 0.5)
 

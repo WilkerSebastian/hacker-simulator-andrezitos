@@ -1,4 +1,3 @@
-
 class Player extends GameObject{
 
     debug:boolean
@@ -24,15 +23,24 @@ class Player extends GameObject{
 
         this.money += this.valorHack
         $("#dinheiro").html(this.money.toString())
+        this.hack--
 
     }
 
     startHack() {
 
-        if (this.isCollision(gameObjects[gameObjects.length - 1]) && this.hack < this.maxHacks) {
+        const monitor = gameObjects[3]
+
+        if (this.isCollision(monitor) && this.hack < this.maxHacks) {
 
             this.hack++
-            setTimeout(this.hacking, this.velocidadeHack)
+            const index = gameObjects.push(new BarraDeLoad(monitor.x - monitor.width / 1.9, monitor.y - (this.hack * (monitor.height * 0.25) + 25), WIDTH * 0.15, HEIGHT * 0.01, this.velocidadeHack / SEGUNDO, this.velocidadeHack)) - 1
+            setTimeout(() => {
+                
+                gameObjects.splice(index , 1)
+                this.hacking()
+            
+            }, this.velocidadeHack)
 
         }
 
@@ -40,7 +48,7 @@ class Player extends GameObject{
 
     update() {
 
-        (gameObjects[gameObjects.length - 1] as Monitor).hover = this.isCollision(gameObjects[gameObjects.length - 1])
+        (gameObjects[3] as Monitor).hover = this.isCollision(gameObjects[3])
 
     }
 

@@ -19,12 +19,14 @@ let fps = 0;
 
 // variaveis para imagens
 
-let quantidadeDeImagens = 6
+let quantidadeDeArquivos = 7
 let carregamento = 0
 
 const createImage = (path:string) => {
 
     const img = new Image()
+
+    img.crossOrigin = 'anonymous'
 
     img.onload = onloading
 
@@ -51,9 +53,9 @@ function onloading() {
 
     carregamento++
 
-    $("#carregando").width(`${(carregamento / quantidadeDeImagens) * 100}%`)
+    $("#carregando").width(`${(carregamento / quantidadeDeArquivos) * 100}%`)
 
-    if (carregamento == quantidadeDeImagens) {
+    if (carregamento == quantidadeDeArquivos) {
         
         $("#load").css("dispaly", "none")
         $("#jogo").css("display", "block")
@@ -70,7 +72,12 @@ function load() {
     imagens.set("computador", createImage("./img/sprites/computadores.png"))
     imagens.set("mesa", createImage("./img/sprites/mesas.png"))
     imagens.set("monitor", createImage("./img/sprites/monitores.png"))
-    imagens.set("teclado", createImage("./img/sprites/teclados.png"))  
+    imagens.set("teclado", createImage("./img/sprites/teclados.png"))
+    for (let index = 1; index <= 1; index++) {
+        
+        imagens.set(`computador-${index}`, createImage(`./img/icones/computador-${index}.png`))  
+        
+    }
 
 }
 
@@ -83,7 +90,8 @@ const spriteSheet:AnimationFrames = {
     ],
     "teclado": [
 
-        {x: 0,y:0,width:155,height:46}
+        {x: 0,y:0,width:155,height:46},
+        {x: 155,y:3,width:160,height:43}
 
     ],
     "monitor": [
@@ -93,7 +101,8 @@ const spriteSheet:AnimationFrames = {
     ],
     "computador": [
 
-        {x: 0,y:0,width:73,height:51}
+        {x: 0,y:0,width:73,height:51},
+        {x: 73,y:0,width:121,height:108}
 
     ]
 

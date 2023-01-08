@@ -50,7 +50,7 @@
                     <div class="fs-5">
 
                         <p class="bg-secondary m-0">Calculadora</p>
-                        <div class="bg-light d-flex align-items-center click">
+                        <div class="bg-light d-flex align-items-center click" type="computador">
                             <p class="m-auto">Laptop da Xuxa</p>
                             <p class="text-hacker text-danger m-auto fs-4">$30</p>
                         </div>
@@ -58,7 +58,7 @@
                     </div>
 
                 </div>
-                <div id="computador" class="mt-2">
+                <div id="monitor" class="mt-2">
 
                     <h4 class="text-light text-center mb-2">MONITORES</h4>
                     <div class="fs-5">
@@ -72,7 +72,7 @@
                     </div>
 
                 </div>
-                <div id="computador" class="mt-2">
+                <div id="teclado" class="mt-2">
 
                     <h4 class="text-light text-center mb-2">TECLADOS</h4>
                     <div class="fs-5">
@@ -86,7 +86,7 @@
                     </div>
 
                 </div>
-                <div id="computador" class="mt-2">
+                <div id="mesa" class="mt-2">
 
                     <h4 class="text-light text-center mb-2">MESAS</h4>
                     <div class="fs-5">
@@ -100,7 +100,7 @@
                     </div>
 
                 </div>
-                <div id="computador" class="mt-2 mb-5">
+                <div id="pintura" class="mt-2 mb-5">
 
                     <h4 class="text-light text-center mb-2">PINTURA</h4>
                     <div class="fs-5">
@@ -118,14 +118,22 @@
 
                 <div id="sub-menu" class="w-100 h-25 bg-dark position-relative bottom-0">
 
-                    <h4 class="text-center text-light">LAPTOP DA XUXA</h4>
+                    <h4 class="text-center text-light" id="titulo">LAPTOP DA XUXA</h4>
                     <div>
 
-                        <img src="" alt="">
-                        <p></p>
+                        <div class="text-light d-flex mx-1">
+
+                            <img id="icone" width="75px" height="75px">
+                            <p id="descricao" class="text-break w-75"></p>
+
+                        </div>
+                        <div>
+
+
+                        </div>
 
                     </div>
-                    <button></button>
+                    <button id="comprar"></button>
 
                 </div>
             </div>
@@ -135,8 +143,8 @@
 
             <div class="px-3 d-flex">
 
-                <p class="text-success fs-1">$</p>
-                <p id="dinheiro" class="fs-1 ms-1">0</p>
+                <p class="text-success m-0 fs-1">$</p>
+                <p id="dinheiro" class="fs-1 m-0 ms-1">0</p>
 
             </div>
 
