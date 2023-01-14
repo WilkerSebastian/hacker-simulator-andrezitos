@@ -29,6 +29,12 @@ class Computador extends GameObject{
         }
 
     }
+    
+    update(): void {
+        
+        
+
+    }
 
     render() {
 

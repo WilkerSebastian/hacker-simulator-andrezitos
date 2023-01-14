@@ -67,15 +67,15 @@ function onloading() {
 
 function load() {
 
-    imagens.set("background", createImage("./img/background.png"))
-    imagens.set("nuvens", createImage("./img/nuvens.png"))
-    imagens.set("computador", createImage("./img/sprites/computadores.png"))
-    imagens.set("mesa", createImage("./img/sprites/mesas.png"))
-    imagens.set("monitor", createImage("./img/sprites/monitores.png"))
-    imagens.set("teclado", createImage("./img/sprites/teclados.png"))
+    imagens.set("background", createImage("./public/img/background.png"))
+    imagens.set("nuvens", createImage("./public/img/nuvens.png"))
+    imagens.set("computador", createImage("./public/img/sprites/computadores.png"))
+    imagens.set("mesa", createImage("./public/img/sprites/mesas.png"))
+    imagens.set("monitor", createImage("./public/img/sprites/monitores.png"))
+    imagens.set("teclado", createImage("./public/img/sprites/teclados.png"))
     for (let index = 1; index <= 1; index++) {
         
-        imagens.set(`computador-${index}`, createImage(`./img/icones/computador-${index}.png`))  
+        imagens.set(`computador-${index}`, createImage(`./public/img/icones/computador-${index}.png`))  
         
     }
 

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker-Simulator</title>
 
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
 
 </head>
 
@@ -40,7 +40,7 @@
         </section>
         <section id="loja">
 
-            <img src="./img/carrinho.png" type="button" id="open-loja">
+            <img src="./public/img/carrinho.png" type="button" id="open-loja">
 
             <div data-bs-spy="scroll" id="menu" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example bg-secondary-menu" tabindex="0">
 
@@ -116,9 +116,9 @@
 
                 </div>
 
-                <div id="sub-menu" class="w-100 h-25 bg-dark position-relative bottom-0">
+                <div id="sub-menu" class="w-100 h-auto bg-dark position-relative bottom-0">
 
-                    <h4 class="text-center text-light" id="titulo">LAPTOP DA XUXA</h4>
+                    <h4 class="text-center text-light" id="titulo"></h4>
                     <div>
 
                         <div class="text-light d-flex mx-1">
@@ -133,7 +133,11 @@
                         </div>
 
                     </div>
-                    <button id="comprar"></button>
+                    <div class="d-flex justify-content-center pb-4">
+
+                        <button id="comprar" class="btn btn-warning">$$$</button>
+
+                    </div>
 
                 </div>
             </div>
@@ -152,9 +156,11 @@
 
     </section>
 
-    <script src="./jquery/jquery-3.6.3.min.js"></script>
-    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/game.bundle.js"></script>
+    <span class="position-fixed top-0 start-0 text-dark opacity-75">V0.8.0</span>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/game.bundle.js"></script>
 
 </body>
 
