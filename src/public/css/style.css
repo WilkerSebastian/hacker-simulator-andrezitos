@@ -17,10 +17,34 @@
 
 }
 
+.clicker {
+
+    cursor: pointer;
+
+}
+
+.click {
+
+    cursor: pointer;
+
+}
+
 .click:hover {
 
     transition: 1s;
     filter: brightness(75%);
+
+}
+
+.text-red {
+
+    color: rgb(204, 71, 71);
+
+}
+
+.text-green {
+
+    color: rgb(50, 230, 50);
 
 }
 
@@ -38,7 +62,7 @@
 #contador {
 
     width: 15rem;
-    height: 9%;
+    height: auto;
     left: 0%;
     bottom: 5%;
     display: flex;

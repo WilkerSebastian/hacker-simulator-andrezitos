@@ -22,7 +22,6 @@ class Player extends GameObject{
     hacking() {
 
         this.money += this.valorHack
-        $("#dinheiro").html(this.money.toString())
         this.hack--
 
     }
@@ -48,6 +47,7 @@ class Player extends GameObject{
 
     update() {
 
+        $("#dinheiro").html(this.money.toString());
         (gameObjects[3] as Monitor).hover = this.isCollision(gameObjects[3])
 
     }

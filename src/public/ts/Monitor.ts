@@ -4,6 +4,7 @@ class Monitor extends GameObject{
     index:number
     hover:boolean
     sprites:Sprite[]
+    valores:number[]
 
     constructor(x:number, y:number, width:number, height:number) {
 
@@ -12,14 +13,34 @@ class Monitor extends GameObject{
         this.index = 0
         this.sprites = spriteSheet["monitor"]
         this.hover = false
+        this.valores = [
+
+            0,
+            73,
+            420
+
+        ]
 
     }
 
-    setShop() {
+    setDescricao() {
 
-        switch (this.index) {
-            case 0:
+        const src = (imagens.get(`computador-${this.index + 1}`) as HTMLImageElement).src
+
+        switch (this.index + 1) {
+            case 1:
                 
+                loja.setDescricao("shop", 
+                "Monitor",
+                "laptop da xuxa" , 
+                src, 
+                `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos.
+                \n\nAumenta o valor do hack.`, 
+                this.valores[this.index + 1])
+
+                break;
+        
+            default:
                 break;
         }
 

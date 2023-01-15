@@ -39,8 +39,32 @@ class Layer {
     }
 }
 class Loja {
-    constructor() {
-        this.buy = () => { };
+    buy(e) {
+        if (Number(e.target.innerText.slice(1)) <= player.money) {
+            const gameObject = loja.getType(e.target.getAttribute("type"));
+            gameObject.upgrade();
+        }
+    }
+    getType(types) {
+        switch (types) {
+            case "Computador": return gameObjects[2];
+            case "Mesa": return gameObjects[0];
+            case "Teclado": return gameObjects[1];
+            case "Monitor": return gameObjects[3];
+        }
+    }
+    setBuy(index, types) {
+        const gameObject = this.getType(types);
+        const buylement = $(".buy").get(index);
+        const cor = gameObject.valores[gameObject.index + 1] <= player.money ? "text-green" : "text-red";
+        buylement.className = `text-hacker ${cor} m-auto fs-4 buy`;
+        buylement.innerText = "$" + gameObject.valores[gameObject.index + 1];
+    }
+    update() {
+        this.setBuy(0, "Computador");
+        this.setBuy(1, "Monitor");
+        this.setBuy(2, "Teclado");
+        this.setBuy(3, "Mesa");
     }
     changeMenu() {
         const menu = $("#menu");
@@ -54,41 +78,53 @@ class Loja {
             openLoja.css("right", "400px");
         }
     }
-    setValue(value) {
-        $("#comprar").text(`$ ${value}`);
-    }
     changeDescricao(event) {
-        switch (event.target.getAttribute("type")) {
-            case "computador":
-                gameObjects[2].setDescricao();
-                break;
-            case " ":
-                break;
+        if ($("#comprar").attr("disabled") == "disabled") {
+            $("#comprar").removeAttr("disabled");
         }
+        const gameObject = this.getType(event.target.getAttribute("type"));
+        gameObject.setDescricao();
     }
-    setDescricao(tipo, titulo, src, descricao) {
+    setDescricao(tipo, object, titulo, src, descricao, valor) {
         if (tipo == "shop") {
             $("#titulo").text(titulo);
             $("#icone").attr("src", src);
             $("#descricao").text(descricao);
+            $("#comprar").attr("type", object);
+            $("#comprar").text("$" + valor);
         }
         else if (tipo == "picture") {
         }
     }
 }
 const loja = new Loja();
-$("#comprar").on("click", () => {
-    loja.buy();
-});
-$("#open-loja").on("click", loja.changeMenu);
+$("#comprar").on("click", (e) => loja.buy(e));
+$("#open-loja").on("click", () => loja.changeMenu());
 const click = $(".click");
-click.on("click", loja.changeDescricao);
+click.on("click", (e) => loja.changeDescricao(e));
 class Mesa extends GameObject {
     constructor(x, y, width, height) {
         super(x, y, width, height);
         this.image = imagens.get("mesa");
         this.index = 0;
         this.sprites = spriteSheet["mesa"];
+        this.valores = [
+            0,
+            240
+        ];
+    }
+    upgrade() {
+    }
+    setDescricao() {
+        const src = imagens.get(`computador-${this.index + 1}`).src;
+        switch (this.index + 1) {
+            case 1:
+                loja.setDescricao("shop", "Mesa", "laptop da xuxa", src, `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos.
+                \n\nAumenta o valor do hack.`, this.valores[this.index + 1]);
+                break;
+            default:
+                break;
+        }
     }
     render() {
         const sprite = this.sprites[this.index];
@@ -102,10 +138,20 @@ class Monitor extends GameObject {
         this.index = 0;
         this.sprites = spriteSheet["monitor"];
         this.hover = false;
+        this.valores = [
+            0,
+            73,
+            420
+        ];
     }
-    setShop() {
-        switch (this.index) {
-            case 0:
+    setDescricao() {
+        const src = imagens.get(`computador-${this.index + 1}`).src;
+        switch (this.index + 1) {
+            case 1:
+                loja.setDescricao("shop", "Monitor", "laptop da xuxa", src, `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos.
+                \n\nAumenta o valor do hack.`, this.valores[this.index + 1]);
+                break;
+            default:
                 break;
         }
     }
@@ -126,6 +172,25 @@ class Teclado extends GameObject {
         this.image = imagens.get("teclado");
         this.index = 0;
         this.sprites = spriteSheet["teclado"];
+        this.valores = [
+            0,
+            15,
+            122,
+            437
+        ];
+    }
+    upgrade() {
+    }
+    setDescricao() {
+        const src = imagens.get(`computador-${this.index + 1}`).src;
+        switch (this.index + 1) {
+            case 1:
+                loja.setDescricao("shop", "Teclado", "laptop da xuxa", src, `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos.
+                \n\nAumenta o valor do hack.`, this.valores[this.index + 1]);
+                break;
+            default:
+                break;
+        }
     }
     render() {
         const sprite = this.sprites[this.index];
@@ -161,18 +226,38 @@ class Computador extends GameObject {
         this.image = imagens.get("computador");
         this.index = 0;
         this.sprites = spriteSheet["computador"];
+        this.valores = [
+            0,
+            30,
+            251
+        ];
+        this.modificadores = [
+            5,
+            12,
+        ];
+    }
+    upgrade() {
+        this.index++;
+        player.money -= this.valores[this.index];
+        player.valorHack = this.modificadores[this.index];
+        this.setDescricao();
     }
     setDescricao() {
         const src = imagens.get(`computador-${this.index + 1}`).src;
         switch (this.index + 1) {
             case 1:
-                loja.setDescricao("shop", "laptop da xuxa", src, `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos. \n\nAumenta o valor do hack.`);
+                loja.setDescricao("shop", "Computador", "laptop da xuxa", src, `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos.
+                \n\nAumenta o valor do hack.`, this.valores[this.index + 1]);
                 break;
-            default:
+            case 2:
+                loja.setDescricao("shop", "Computador", "PC da Escola", src, `Ninguém quer mais esse
+                computador  com Windows 95. Leva 40
+                minutos pra ligar, e so liga 20% das
+                vezes (não existe eplicação científica
+                pra isso).
+                \n\nAumenta o valor do hack.`, this.valores[this.index + 1]);
                 break;
         }
-    }
-    update() {
     }
     render() {
         const sprite = this.sprites[this.index];
@@ -191,7 +276,6 @@ class Player extends GameObject {
     }
     hacking() {
         this.money += this.valorHack;
-        $("#dinheiro").html(this.money.toString());
         this.hack--;
     }
     startHack() {
@@ -206,6 +290,7 @@ class Player extends GameObject {
         }
     }
     update() {
+        $("#dinheiro").html(this.money.toString());
         gameObjects[3].hover = this.isCollision(gameObjects[3]);
     }
     render() {
@@ -215,8 +300,8 @@ class Player extends GameObject {
         }
     }
 }
-const WIDTH = window.innerWidth;
-const HEIGHT = window.innerHeight;
+let WIDTH = window.innerWidth;
+let HEIGHT = window.innerHeight;
 const canvas = document.getElementById("canvas");
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
@@ -226,7 +311,7 @@ const times = [];
 let delta;
 let previousTime = performance.now();
 let fps = 0;
-let quantidadeDeArquivos = 7;
+let quantidadeDeArquivos = 8;
 let carregamento = 0;
 const createImage = (path) => {
     const img = new Image();
@@ -258,7 +343,7 @@ function load() {
     imagens.set("mesa", createImage("./public/img/sprites/mesas.png"));
     imagens.set("monitor", createImage("./public/img/sprites/monitores.png"));
     imagens.set("teclado", createImage("./public/img/sprites/teclados.png"));
-    for (let index = 1; index <= 1; index++) {
+    for (let index = 1; index <= 2; index++) {
         imagens.set(`computador-${index}`, createImage(`./public/img/icones/computador-${index}.png`));
     }
 }
@@ -315,6 +400,7 @@ function loop() {
     window.requestAnimationFrame(loop);
 }
 function update() {
+    loja.update();
     nuvens.update();
     gameObjects.forEach((gameObject) => {
         gameObject.update();

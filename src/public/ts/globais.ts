@@ -1,6 +1,6 @@
 // tamanho da tela
-const WIDTH = window.innerWidth
-const HEIGHT = window.innerHeight
+let WIDTH = window.innerWidth
+let HEIGHT = window.innerHeight
 
 // variaveis de renderização
 const canvas = document.getElementById("canvas") as HTMLCanvasElement
@@ -19,7 +19,7 @@ let fps = 0;
 
 // variaveis para imagens
 
-let quantidadeDeArquivos = 7
+let quantidadeDeArquivos = 8
 let carregamento = 0
 
 const createImage = (path:string) => {
@@ -73,7 +73,7 @@ function load() {
     imagens.set("mesa", createImage("./public/img/sprites/mesas.png"))
     imagens.set("monitor", createImage("./public/img/sprites/monitores.png"))
     imagens.set("teclado", createImage("./public/img/sprites/teclados.png"))
-    for (let index = 1; index <= 1; index++) {
+    for (let index = 1; index <= 2; index++) {
         
         imagens.set(`computador-${index}`, createImage(`./public/img/icones/computador-${index}.png`))  
         
@@ -109,6 +109,8 @@ const spriteSheet:AnimationFrames = {
 }
 
 // variaveis dos elementos do jogo
+
+type TypeObjectShop = "Computador" | "Mesa" | "Teclado" | "Monitor"
 
 let gameFrame = 0
 

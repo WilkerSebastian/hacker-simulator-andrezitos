@@ -40,6 +40,8 @@ function loop() {
 
 function update() {
 
+    loja.update()
+
     nuvens.update()
 
     gameObjects.forEach((gameObject) => {

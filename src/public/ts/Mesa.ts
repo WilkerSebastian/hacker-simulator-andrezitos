@@ -4,6 +4,7 @@ class Mesa extends GameObject{
     
     index:number
     sprites:Sprite[]
+    valores:number[]
 
     constructor(x:number, y:number, width:number, height:number) {
 
@@ -11,6 +12,40 @@ class Mesa extends GameObject{
         this.image = imagens.get("mesa") as HTMLImageElement
         this.index = 0
         this.sprites = spriteSheet["mesa"]
+        this.valores = [
+
+            0,
+            240
+
+        ]
+
+    }
+
+    upgrade() {
+
+        
+    }
+
+    setDescricao() {
+
+        const src = (imagens.get(`computador-${this.index + 1}`) as HTMLImageElement).src
+
+        switch (this.index + 1) {
+            case 1:
+                
+                loja.setDescricao("shop", 
+                "Mesa",
+                "laptop da xuxa" , 
+                src, 
+                `Com esse leptop bilingue você consegue aprender inglês enquanto hackeia meninas de 8 anos.
+                \n\nAumenta o valor do hack.`, 
+                this.valores[this.index + 1])
+
+                break;
+        
+            default:
+                break;
+        }
 
     }
 
